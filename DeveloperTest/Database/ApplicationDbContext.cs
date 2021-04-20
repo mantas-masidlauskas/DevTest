@@ -35,6 +35,31 @@ namespace DeveloperTest.Database
                 });
 
             modelBuilder.Entity<Customer>()
+                .HasData(new Customer
+                {
+                    CustomerId = 1,
+                    Name = "Small customer",
+                    TypeId = 0
+                });
+
+            modelBuilder.Entity<Customer>()
+                .HasData(new Customer
+                {
+                    CustomerId = 2,
+                    Name = "Large customer",
+                    TypeId = 1
+                });
+
+            modelBuilder.Entity<Job>()
+                .HasData(new Job
+                {
+                    JobId = 2,
+                    Engineer = "Test",
+                    When = DateTime.Now,
+                    CustomerId = 2
+                });
+
+            modelBuilder.Entity<Customer>()
                 .HasKey(x => x.CustomerId);
 
             modelBuilder.Entity<Customer>()
