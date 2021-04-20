@@ -8,6 +8,8 @@ namespace DeveloperTest.Database
     {
         public DbSet<Job> Jobs { get; set; }
 
+        public DbSet<Customer> Customer { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
 
@@ -31,6 +33,21 @@ namespace DeveloperTest.Database
                     Engineer = "Test",
                     When = DateTime.Now
                 });
+
+            modelBuilder.Entity<Customer>()
+                .HasKey(x => x.CustomerId);
+
+            modelBuilder.Entity<Customer>()
+                .Property(x => x.CustomerId)
+                .ValueGeneratedOnAdd();
+
+            modelBuilder.Entity<Customer>()
+                .Property(x => x.Name)
+                .HasMaxLength(512);
+
+            modelBuilder.Entity<Customer>()
+               .Property(x => x.TypeId)
+               .IsRequired();
         }
     }
 }
