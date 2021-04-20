@@ -3,7 +3,7 @@
     <p>Engineer: {{job.engineer}}</p>
     <p>When: {{job.when | date:'shortDate'}}</p>
 
-    <p *ngIf="job.customer === undefined">Customer: Unknown</p>
+    <p *ngIf="job.customer === null">Customer: Unknown</p>
 
     <ng-container *ngIf="job.customer !== null">
         <p>Customer: {{job.customer.name}}</p>
