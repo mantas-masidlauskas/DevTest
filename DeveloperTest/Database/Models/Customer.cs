@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DeveloperTest.Database.Models
 {
@@ -9,5 +10,7 @@ namespace DeveloperTest.Database.Models
         public string Name { get; set; }
         
         public byte TypeId { get; set; }
+
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

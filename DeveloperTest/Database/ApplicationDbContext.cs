@@ -48,6 +48,11 @@ namespace DeveloperTest.Database
             modelBuilder.Entity<Customer>()
                .Property(x => x.TypeId)
                .IsRequired();
+
+            modelBuilder.Entity<Job>()
+                .HasOne(e => e.Customer)
+                .WithMany(c => c.Jobs)
+                .HasForeignKey(c => c.CustomerId);
         }
     }
 }
