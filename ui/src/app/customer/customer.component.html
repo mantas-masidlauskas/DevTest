@@ -7,7 +7,7 @@
 
   <label for="customer">Customer</label>
   <select name="customerType" required #engineer="ngModel" ngModel placeholder="Please select" [(ngModel)]="newCustomer.type">
-    <option [ngValue]="undefined" selected>Please select</option>
+    <option [value]="undefined" selected>Please select</option>
     <option *ngFor="let cutomerType of cutomerTypes" [value]="CustomerType[cutomerType]">{{CustomerType[cutomerType]}}</option>
   </select>
   <small *ngIf="engineer.invalid">Please select a customer type</small>
