@@ -1,5 +1,22 @@
-<p>JobId: {{job.jobId}}</p>
-<p>Engineer: {{job.engineer}}</p>
-<p>When: {{job.when | date:'shortDate'}}</p>
+<ng-container *ngIf="job">
+    <p>JobId: {{job.jobId}}</p>
+    <p>Engineer: {{job.engineer}}</p>
+    <p>When: {{job.when | date:'shortDate'}}</p>
+
+    <p *ngIf="job.customer === null">Customer: Unknown</p>
+
+    <ng-container *ngIf="job.customer !== null">
+        <p>Customer: {{job.customer.name}}</p>
+        <p>Customer type: {{job.customer.type}}</p>
+        
+    </ng-container>
+
+</ng-container>
+
+
+
+
+
+
 
 <a [routerLink]="['/jobs']">Back</a>

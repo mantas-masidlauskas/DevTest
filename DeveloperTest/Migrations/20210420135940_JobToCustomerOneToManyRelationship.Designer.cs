@@ -4,14 +4,16 @@ using DeveloperTest.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DeveloperTest.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210420135940_JobToCustomerOneToManyRelationship")]
+    partial class JobToCustomerOneToManyRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,20 +38,6 @@ namespace DeveloperTest.Migrations
                     b.HasKey("CustomerId");
 
                     b.ToTable("Customer");
-
-                    b.HasData(
-                        new
-                        {
-                            CustomerId = 1,
-                            Name = "Small customer",
-                            TypeId = (byte)0
-                        },
-                        new
-                        {
-                            CustomerId = 2,
-                            Name = "Large customer",
-                            TypeId = (byte)1
-                        });
                 });
 
             modelBuilder.Entity("DeveloperTest.Database.Models.Job", b =>
@@ -79,14 +67,7 @@ namespace DeveloperTest.Migrations
                         {
                             JobId = 1,
                             Engineer = "Test",
-                            When = new DateTime(2021, 4, 20, 16, 54, 12, 836, DateTimeKind.Local).AddTicks(9777)
-                        },
-                        new
-                        {
-                            JobId = 2,
-                            CustomerId = 2,
-                            Engineer = "Test",
-                            When = new DateTime(2021, 4, 20, 16, 54, 12, 841, DateTimeKind.Local).AddTicks(3290)
+                            When = new DateTime(2021, 4, 20, 14, 59, 39, 861, DateTimeKind.Local).AddTicks(3138)
                         });
                 });
 
